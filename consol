@@ -1,0 +1,63 @@
+# Stop all containers
+docker stop $(docker ps -a -q)
+
+# Delete all containers
+docker rm $(docker ps -a -q)
+
+# Delete all images
+docker rmi $(docker images -q)
+
+#Stop
+docker-compose stop
+
+#Remove
+docker-compose rm
+
+
+curl http://localhost:9090/hystrix.stream
+
+
+http://gateway:8080/hystrix.stream
+
+docker-compose scale rest=5
+
+
+
+IP: 185.128.233.199
+user (sudo): dzo (pass: HpSu32NCtgEONdzm9zVY)
+
+ssh dzo@185.128.233.199
+
+#show databases
+#user:root
+#pass:secret131
+
+docker exec 25h8_mysql mysql -uroot -psecret131 -e 'show databases;'
+
+Database
+information_schema
+db25x8
+mysql
+performance_schema
+sys
+
+
+host: 185.128.233.199
+port: 3306
+dp: db25x8
+user: root
+pass: secret131
+
+
+#from remote
+ssh dzo@185.128.233.199 'docker save nodeimage:latest | bzip2' | bunzip2 | docker load
+
+
+
+
+
+#to remote
+docker save cloud/nodeimage:latest | bzip2 | ssh dzo@185.128.233.199 'bunzip2 | docker load'
+docker save cloud/hystrix-dashboard:latest | bzip2 | ssh dzo@185.128.233.199 'bunzip2 | docker load'
+docker save cloud/discovery:latest | bzip2 | ssh dzo@185.128.233.199 'bunzip2 | docker load'
+docker save cloud/api-gateway:latest | bzip2 | ssh dzo@185.128.233.199 'bunzip2 | docker load'

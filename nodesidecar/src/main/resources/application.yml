@@ -1,0 +1,12 @@
+#name for service discovery
+spring.application.name: 25h8_be
+#prana port
+server.port: 9999
+#eureca
+eureka:
+  client:
+   serviceUrl.defaultZone: http://discovery:8761/eureka/
+   healthcheck.enabled: true
+#parent port
+sidecar:
+  port: 10102

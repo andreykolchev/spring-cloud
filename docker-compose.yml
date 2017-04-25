@@ -1,0 +1,27 @@
+discovery:
+  image: cloud/discovery-microservice
+  ports:
+   - "8761:8761"
+
+rest:
+  image: cloud/rest-microservice
+  ports:
+   - "9090"
+  links:
+   - discovery
+
+gateway:
+  image: cloud/api-gateway-microservice
+  ports:
+   - "8080:8080"
+  links:
+   - discovery
+   - rest
+
+hystrix:
+  image: cloud/hystrix-dashboard
+  ports:
+   - "7979:7979"
+  links:
+   - gateway
+   - discovery

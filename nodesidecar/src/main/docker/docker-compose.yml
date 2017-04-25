@@ -1,0 +1,16 @@
+back:
+   image: cloud/nodeimage:latest
+   container_name: 25h8_be
+   volumes:
+     - ./back/code:/app
+     - ./back/utils:/utils
+     - ./back/utils/config:/app/config
+   depends_on:
+     - sso
+     - es
+     - mysql
+   tty: true
+   ports:
+     - "10102:9999"
+   working_dir: /app
+   command: bash -c "/utils/entrypoint.sh > /utils/back.log 2>&1"

@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: back-api
+
+server:
+  port: 8000
+
+
+#logging:
+#    level:
+#      ROOT: warn
+#      org.springframework.web: warn
