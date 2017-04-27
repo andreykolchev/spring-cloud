@@ -25,6 +25,16 @@
 
     </dependencies>
 
+    <!--<build>-->
+        <!--<finalName>node-sidecar</finalName>-->
+        <!--<plugins>-->
+            <!--<plugin>-->
+                <!--<groupId>org.springframework.boot</groupId>-->
+                <!--<artifactId>spring-boot-maven-plugin</artifactId>-->
+            <!--</plugin>-->
+        <!--</plugins>-->
+    <!--</build>-->
+
     <build>
         <finalName>node-sidecar</finalName>
         <plugins>
@@ -52,7 +62,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <imageName>cloud/nodeimage</imageName>
+                    <imageName>nodejre</imageName>
                     <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
                     <resources>
                         <resource>

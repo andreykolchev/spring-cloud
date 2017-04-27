@@ -1,5 +1,5 @@
 #name for service discovery
-spring.application.name: 25h8_be
+spring.application.name: 25h8_be_c
 #prana port
 server.port: 9999
 #eureca

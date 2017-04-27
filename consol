@@ -1,3 +1,8 @@
+#build image Dockerfile on root dir
+docker build -t <image-name> .
+#run container from image
+docker run <image-name>
+
 # Stop all containers
 docker stop $(docker ps -a -q)
 
@@ -13,51 +18,49 @@ docker-compose stop
 #Remove
 docker-compose rm
 
+#autoscaling of container
+docker-compose scale <container-name>=5
 
+#hystrix.stream
 curl http://localhost:9090/hystrix.stream
-
-
 http://gateway:8080/hystrix.stream
 
-docker-compose scale rest=5
-
-
-
+#Virtual server
 IP: 185.128.233.199
 user (sudo): dzo (pass: HpSu32NCtgEONdzm9zVY)
-
 ssh dzo@185.128.233.199
 
-#show databases
-#user:root
-#pass:secret131
-
+#show databases user:root pass:secret131
 docker exec 25h8_mysql mysql -uroot -psecret131 -e 'show databases;'
+host: 185.128.233.199 port: 3306 dp: db25x8 user: root pass: secret131
 
-Database
-information_schema
-db25x8
-mysql
-performance_schema
-sys
-
-
-host: 185.128.233.199
-port: 3306
-dp: db25x8
-user: root
-pass: secret131
-
-
-#from remote
+##############################Copy images#########################################
+#from remote host
 ssh dzo@185.128.233.199 'docker save nodeimage:latest | bzip2' | bunzip2 | docker load
 
-
-
-
-
-#to remote
-docker save cloud/nodeimage:latest | bzip2 | ssh dzo@185.128.233.199 'bunzip2 | docker load'
+#to remote host
+docker save cloud/nodejre:latest | bzip2 | ssh dzo@185.128.233.199 'bunzip2 | docker load'
 docker save cloud/hystrix-dashboard:latest | bzip2 | ssh dzo@185.128.233.199 'bunzip2 | docker load'
 docker save cloud/discovery:latest | bzip2 | ssh dzo@185.128.233.199 'bunzip2 | docker load'
 docker save cloud/api-gateway:latest | bzip2 | ssh dzo@185.128.233.199 'bunzip2 | docker load'
+
+##############################Copy files#########################################
+#to container
+docker cp /home/user/IdeaProjects/cluster/nodesidecar/target/node-sidecar.jar 25h8_be:/node-sidecar.jar
+#from container
+docker cp mycontainer:/foo.txt foo.txt
+
+#start jar
+docker exec -d 25h8_be java -jar /node-sidecar.jar
+
+#stop jar
+docker exec 25h8_be ps -aux
+kill <PID>
+
+#network
+docker network ls
+docker network inspect <network_name>
+
+
+command: bash -c "java -jar /node-sidecar.jar > /utils/node-sidecar.log 2>&1"
+

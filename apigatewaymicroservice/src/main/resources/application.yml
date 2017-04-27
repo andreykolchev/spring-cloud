@@ -13,8 +13,8 @@ zuul:
     ignoredServices: "*"
     routes:
         25h8_be:
-            path: /25h8_be/**
-            serviceId: 25h8_be
+            path: /25h8_be_c/**
+            serviceId: 25h8_be_c
             stripPrefix: true
 #        parentapi:
 #            path: /back-api-sidecar/**

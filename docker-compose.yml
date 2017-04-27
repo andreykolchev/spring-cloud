@@ -1,25 +1,18 @@
 discovery:
-  image: cloud/discovery-microservice
+  image: cloud/discovery
+  container_name: discovery
   ports:
    - "8761:8761"
-
-rest:
-  image: cloud/rest-microservice
-  ports:
-   - "9090"
-  links:
-   - discovery
-
 gateway:
-  image: cloud/api-gateway-microservice
+  image: cloud/api-gateway
+  container_name: gateway
   ports:
    - "8080:8080"
   links:
    - discovery
-   - rest
-
 hystrix:
   image: cloud/hystrix-dashboard
+  container_name: hystrix-dashboard
   ports:
    - "7979:7979"
   links:
