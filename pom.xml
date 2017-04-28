@@ -9,7 +9,7 @@
     <version>0.1.0</version>
 
     <modules>
-        <!--<module>configmicroservice</module>-->
+        <module>configmicroservice</module>
         <module>discoverymicroservice</module>
         <module>apigatewaymicroservice</module>
         <module>restmicroservice</module>
@@ -17,6 +17,7 @@
         <module>backapi</module>
         <module>backapisidecar</module>
         <module>nodesidecar</module>
+        <module>lifecyclemanager</module>
     </modules>
 
     <packaging>pom</packaging>

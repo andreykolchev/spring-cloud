@@ -2,16 +2,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-
     <parent>
         <artifactId>cluster</artifactId>
         <groupId>cluster</groupId>
         <version>0.1.0</version>
     </parent>
+    <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>config-microservice</artifactId>
-    <packaging>jar</packaging>
+    <artifactId>lifecycle-manager</artifactId>
 
     <properties>
         <docker.image.prefix>cloud</docker.image.prefix>
@@ -20,20 +18,22 @@
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-config-server</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-eureka</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.jcraft</groupId>
+            <artifactId>jsch</artifactId>
+            <version>0.1.53</version>
         </dependency>
     </dependencies>
 
+
     <build>
-        <finalName>config-microservice</finalName>
+        <finalName>lifecycle-manager</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

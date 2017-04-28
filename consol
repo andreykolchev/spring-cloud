@@ -39,10 +39,10 @@ host: 185.128.233.199 port: 3306 dp: db25x8 user: root pass: secret131
 ssh dzo@185.128.233.199 'docker save nodeimage:latest | bzip2' | bunzip2 | docker load
 
 #to remote host
-docker save cloud/nodejre:latest | bzip2 | ssh dzo@185.128.233.199 'bunzip2 | docker load'
-docker save cloud/hystrix-dashboard:latest | bzip2 | ssh dzo@185.128.233.199 'bunzip2 | docker load'
-docker save cloud/discovery:latest | bzip2 | ssh dzo@185.128.233.199 'bunzip2 | docker load'
-docker save cloud/api-gateway:latest | bzip2 | ssh dzo@185.128.233.199 'bunzip2 | docker load'
+docker save nodejre:latest | bzip2 | ssh dzo@185.41.249.45 'bunzip2 | docker load'
+docker save cloud/hystrix-dashboard:latest | bzip2 | ssh dzo@185.41.249.45 'bunzip2 | docker load'
+docker save cloud/discovery:latest | bzip2 | ssh dzo@185.41.249.45 'bunzip2 | docker load'
+docker save cloud/api-gateway:latest | bzip2 | ssh dzo@185.41.249.45 'bunzip2 | docker load'
 
 ##############################Copy files#########################################
 #to container
