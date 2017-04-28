@@ -9,15 +9,16 @@
     <version>0.1.0</version>
 
     <modules>
-        <module>configmicroservice</module>
-        <module>discoverymicroservice</module>
-        <module>apigatewaymicroservice</module>
+        <module>config</module>
+        <module>discovery</module>
+        <module>gateway</module>
         <module>restmicroservice</module>
-        <module>hystrixdashboard</module>
+        <module>hystrix</module>
         <module>backapi</module>
         <module>backapisidecar</module>
         <module>nodesidecar</module>
-        <module>lifecyclemanager</module>
+        <module>lifecycle</module>
+        <module>turbine</module>
     </modules>
 
     <packaging>pom</packaging>

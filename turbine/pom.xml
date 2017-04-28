@@ -2,15 +2,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-
     <parent>
         <artifactId>cluster</artifactId>
         <groupId>cluster</groupId>
         <version>0.1.0</version>
     </parent>
+    <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>rest-microservice</artifactId>
+    <artifactId>turbine</artifactId>
     <packaging>jar</packaging>
 
     <properties>
@@ -18,38 +17,18 @@
     </properties>
 
     <dependencies>
-
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-eureka</artifactId>
+            <artifactId>spring-cloud-starter-turbine-stream</artifactId>
         </dependency>
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-netflix-hystrix-stream</artifactId>
-        </dependency>
-
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-stream-rabbit</artifactId>
         </dependency>
-
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-            <version>2.6.1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-            <version>2.6.1</version>
-        </dependency>
-
     </dependencies>
 
     <build>
-        <finalName>rest-microservice</finalName>
+        <finalName>turbine</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -88,5 +67,7 @@
             </plugin>
         </plugins>
     </build>
+
+
 
 </project>

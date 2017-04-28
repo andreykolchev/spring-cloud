@@ -1,0 +1,21 @@
+info:
+    component: turbine
+
+server:
+    port: 8989
+
+management:
+    port: 8990
+
+app.rabbitmq.host: localhost
+
+turbine:
+    aggregator:
+        clusterConfig: REST-API
+    appConfig: rest-api
+
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://localhost:8761/eureka/
+        fetchRegistry: true

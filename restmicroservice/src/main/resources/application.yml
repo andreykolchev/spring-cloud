@@ -1,12 +1,13 @@
 spring.application.name: rest-microservice
 
-server:
-  port: 9090
+server.port: 9090
 
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
+
+app.rabbitmq.host: localhost
 
 logging.level:
         ROOT: WARN
