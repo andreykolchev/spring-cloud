@@ -22,7 +22,7 @@ public class EurekaHealthCheckHandler implements HealthCheckHandler {
         this.restTemplate = new RestTemplate();
     }
 
-    public Boolean checkStatus() {
+    private Boolean checkStatus() {
         try {
             ResponseEntity<String> response = restTemplate.getForEntity(parentCheckpointUrl, String.class);
             if (response.getStatusCode().is2xxSuccessful()) {

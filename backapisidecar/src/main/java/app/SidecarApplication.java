@@ -16,7 +16,6 @@ public class SidecarApplication {
         final ApplicationContext context = SpringApplication.run(SidecarApplication.class, args);
         final EurekaClient eurekaClient = context.getBean(EurekaClient.class);
         eurekaClient.registerHealthCheck(new EurekaHealthCheckHandler());
-//        SpringApplication.run(SidecarApplication.class, args);
     }
 
 }

@@ -13,13 +13,13 @@ public class EurekaHealthCheckHandler implements HealthCheckHandler {
     private String parentCheckpointUrl;
 
     public EurekaHealthCheckHandler() {
-        this.parentCheckpointUrl = "http://localhost:10102/";
+        this.parentCheckpointUrl = "http://localhost:10102/class/tree/mainClassifier/";
         this.restTemplate = new RestTemplate();
     }
 
-    public Boolean checkStatus() {
+    private Boolean checkStatus() {
         try {
-            ResponseEntity<String> response = restTemplate.getForEntity(parentCheckpointUrl, String.class);
+            ResponseEntity<Object> response = restTemplate.getForEntity(parentCheckpointUrl, Object.class);
             if (response.getStatusCode().is2xxSuccessful()) {
                 return true;
             }
